@@ -6,6 +6,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
     }
 
     dependencies {
@@ -18,6 +21,9 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 
@@ -55,17 +61,20 @@ android {
     }
 
     dependencies {
-        implementation("androidx.annotation:annotation:1.9.1")
+        implementation "androidx.annotation:annotation:1.9.1"
 
         //start:ffmpeg-kit-https
         //    implementation 'com.arthenica:ffmpeg-kit-https:6.0-2'
         //    FmpegKit has been officially retired.Place dependent libraries locally
         //    The Maven configuration is immutable and currently not required; it’s retained solely as a precaution.
-        implementation files('./libs/ffmpeg-kit-https-6.0-2.aar')
+//        implementation files('./libs/ffmpeg-kit-https-6.0-2.aar')
+        implementation name: 'ffmpeg-kit-https-6.0-2'
+        implementation name: 'smart-exception-java-0.2.1'
+        implementation name: 'smart-exception-common-0.2.1'
 
         //start:    smart-exception-java
-        implementation files('./libs/smart-exception-java-0.2.1.jar')
-        implementation files('./libs/smart-exception-common-0.2.1.jar')
+//        implementation files('./libs/smart-exception-java-0.2.1.jar')
+//        implementation files('./libs/smart-exception-common-0.2.1.jar')
         //    or
         //    implementation 'com.arthenica:smart-exception-java:0.2.1'
         //end:    smart-exception-java
